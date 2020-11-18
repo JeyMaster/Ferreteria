@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from Sistema.models import *
+from core.sistema.models import *
 
 # Register your models here.
 	

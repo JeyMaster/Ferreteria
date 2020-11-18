@@ -12,16 +12,22 @@ class Suppliers(models.Model):
 	postal_code=models.CharField(max_length=10,null=True)
 	country=models.CharField(max_length=15,null=True)
 	phone=models.CharField(max_length=24,null=True)
+
 	class Meta:
+		verbose_name='Supplier'
 		verbose_name_plural='Suppliers'
+		db_table='Suppliers'
 	
 	def __str__(self):
 		return self.company_name
 	
 
 class Categories(models.Model):
+
 	class Meta:
+		verbose_name='Category'
 		verbose_name_plural='Categories'
+		db_table='Categories'
 
 	category_id=models.AutoField(primary_key=True)
 	category_name=models.CharField(max_length=15)
@@ -47,6 +53,8 @@ class Products(models.Model):
 		return self.product_name
 
 	class Meta:
+		db_table='Products'
+		verbose_name='Product'
 		verbose_name_plural='Products'
 
 
@@ -64,6 +72,7 @@ class Orders (models.Model):
 	class Meta:
 		verbose_name ='Order'
 		verbose_name_plural ='Orders'
+		db_table='Orders'
 
 class OrderDetails(models.Model):
 	order_id=models.ForeignKey(Orders,on_delete=models.CASCADE)
@@ -79,3 +88,4 @@ class OrderDetails(models.Model):
 	class Meta:
 		verbose_name = 'Order_Detail'
 		verbose_name_plural = 'Order_Details'
+		db_table='Order_details'
